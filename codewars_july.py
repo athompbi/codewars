@@ -1,9 +1,23 @@
-###################################################################
+######################################################################
+
+
+### 1
 ### Multiples of 3 or 5
 
 def solution(number):
+    """Finds all multiples of 3 and 5 below a given number
+    and adds them together
+    
+    Return:
+        sum = sum of multiples of 3 and 5"""
 
     def find_multiples(number, divisor):
+        """Finds all the multiples of a number. Takes the number and determines
+        if there are any remainders after dividing by calculating multiple.
+        Then lists multiples and adds to a list of multiples
+        
+        Return:
+            multiples_list: list of multiples"""
 
         remainder = number % divisor
 
@@ -34,10 +48,19 @@ def solution(number):
     return sum
 
 
-#######################################################################
+######################################################################
+
+
+### 2
 ### Printer errors
 
 def printer_error(s):
+    """Determines the number of printer errors in a string
+    (errors are characters outside of a-m)
+    
+    Returns: 
+        error_rate: number of errors / string length"""
+
     denominator = len(s)
     numerator = 0
 
@@ -48,14 +71,21 @@ def printer_error(s):
             numerator = numerator + 1
 
     error_rate = (f'"{numerator}/{denominator}"')
-    print(error_rate)
+
     return error_rate
 
 
-##################################################################
+######################################################################
+
+
+### 3
 ### Disemvowel Trolls
 
 def disemvowel(string_):
+    """Removes vowels from a string
+    
+    Returns: 
+        string_: string without vowels"""
 
     string_list = []
 
@@ -70,10 +100,19 @@ def disemvowel(string_):
     return string_
 
 
-#####################################################################
+######################################################################
+
+
+### 4
 ### Create phone number
 
 def create_phone_number(n):
+    """Takes a 10 digits number and formats it to a phone number
+    
+    Returns: 
+        phone_number: formatted phone number
+    """
+
     n = str(n)
     one = n[0]
     two = n[1]
@@ -88,10 +127,20 @@ def create_phone_number(n):
     phone_number = (f'({one}{two}{three}) {four}{five}{six}-{seven}{eight}{nine}{ten}')
     return phone_number
 
-################################################################
+
+######################################################################
+
+
+### 5
 ### Narcissistic Number
 
 def narcissistic(number):
+    """Determines if a number is narcississtic (the sum of the digits to the power of 
+    the number length equal the number)
+    
+    Return:
+        is_narcissistic: Boolean if number is narcissistic"""
+        
     number = str(number)
     sum = 0
 
@@ -109,10 +158,20 @@ def narcissistic(number):
 
     return is_narcissistic
 
-###################################################################
+
+######################################################################
+
+
+### 6
 ### Array difference
 
 def array_diff(a, b):
+    """Determines which elements are in array a, but not in array b.
+    Creates new array of elements only in a.
+    
+    Return:
+        c: new list of items only in a and not in b"""
+
     c = []
     for item in a:
         if item not in b:
@@ -120,17 +179,34 @@ def array_diff(a, b):
         
     return c
 
-#####################################################################
+
+######################################################################
+
+
+### 7
 ### Twice as old
 
 def twice_as_old(dad_age,son_age):
+    """Solves a riddle determining how many years 
+    away a dad's current age to his son's current age doubled
+    
+    Return: 
+        Solution to the riddle"""
 
     return abs(son_age * 2 - dad_age)
 
-#####################################################################
+
+######################################################################
+
+
+### 8
 ### Remove first and last characters
 
 def remove_char(string):
+    """Removes the first and last characters of a string
+    
+    Return:
+        String without first and last characters"""
 
     string_list = []
 
@@ -142,12 +218,18 @@ def remove_char(string):
 
     return ''.join(string_list)
     
-####################################################################
+
+######################################################################
+
+
+### 9
 ### Human Readable Time
 
-# 1 hour, 1 minute, 1 seconds = 3661
-
 def human_readable_time(seconds):
+    """Takes a time in seconds and converts it to HH:MM:SS
+    
+    Return:
+        HH:MM:SS"""
 
     hours = int(seconds / 3600)
 
@@ -168,12 +250,21 @@ def human_readable_time(seconds):
 
     return (f'{hours}:{minutes}:{seconds}')
 
-print(human_readable_time(5))
 
-###################################################################
+######################################################################
+
+
+### 10
 ### Who likes it?
 
 def likes(names):
+    """Takes a list of names and returns text based on how many
+    people are in the list. Can be used for something like displaying
+    facebook likes.
+    
+    Return:
+        Text of who likes this"""
+
     if len(names) == 0:
         return ('no one likes this')
     if len(names) == 1:
@@ -186,3 +277,4 @@ def likes(names):
         return (f'{names[0]}, {names[1]} and {len(names) -2} others like this')
 
 
+######################################################################
