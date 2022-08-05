@@ -88,28 +88,129 @@ def generate_hashtag(s):
 ### Alphanumeric checker
 
 def alphanumeric(password):
+    """Checks if a given password is alphanumeric
+    
+    Return:
+        True: if password only contains alphanumeric characters
+        False: if password is empty, contains spaces, underscores, or other 
+            non-alphanumeric characters. """
 
+    if password == "":
+        return False
+    
     for x in password:
         if x == " " or x == '_':
             return False
-        if x not in ('1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'):
+        elif x not in ('1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'):
             return False
     
-    character_count = 10
+    ### added character counter to verify the password contains at least one number
 
-    for character in ('1234567890'):
-        if character not in password:
-            character_count -= 1
+    # character_count = 10
 
-    if character_count == 0:
-        return False
+    # for character in ('1234567890'):
+    #     if character not in password:
+    #         character_count -= 1
+
+    # if character_count == 0:
+    #     return False
 
     else:
         return True
 
-alphanumeric('PassW0rd')
 
 ######################################################################
+
+
+### 5
+### ROT13 Cipher
+
+### This is a basic caeser cipher that I wrote and then altered to 
+### create the ROT13 Cipher.
+
+def basic_caeser_cipher(string, n):
+    """A basic Caseser cipher that takes a string and then moves
+    each letter's ascii by n, giving a new character. This cipher
+    only affects letters, all other characters are the same as 
+    in the original string. 
+    
+    Return:
+        new_string: string processed through cipher"""
+
+    def get_new_ascii(ascii, n, max):
+        """Gets the new ascii for processing through a cipher. The ascii 
+        has n added to it, and if the new ascii is out of range of the max,
+        then 26 is subtracted to keep the character a letter.
+        
+        Return:
+            new_ascii: converted ascii"""
+
+        new_ascii = ascii + n
+        if new_ascii > max:
+            new_ascii -= 26
+
+        return new_ascii
+
+    new_string = ""
+
+    for character in string:
+
+        ascii = ord(character)
+
+        if ascii > 96 and ascii < 123:
+            new_string += chr(get_new_ascii(ascii, n, 122))
+
+        elif ascii > 64 and ascii < 91:
+            new_string += chr(get_new_ascii(ascii, n, 90))
+
+        else:
+            new_string = new_string + character
+
+    return new_string
+
+
+def rot13(string):
+    """A ROT13 cipher that takes a string and then moves
+    each letter's ascii by 13, giving a new character. This cipher
+    only affects letters, all other characters are the same as 
+    in the original string. 
+    
+    Return:
+        new_string: string processed through cipher"""
+
+    def get_new_ascii(ascii, max):
+        """Gets the new ascii for processing through the ROT13 cipher. The ascii 
+        has 13 added to it, and if the new ascii is out of range of the max,
+        then 26 is subtracted to keep the character a letter.
+        
+        Return:
+            new_ascii: converted ascii"""
+
+        new_ascii = ascii + 13
+        if new_ascii > max:
+            new_ascii -= 26
+
+        return new_ascii
+
+    new_string = ""
+
+    for character in string:
+
+        ascii = ord(character)
+
+        if ascii > 96 and ascii < 123:
+            new_string += chr(get_new_ascii(ascii, 122))
+
+        elif ascii > 64 and ascii < 91:
+            new_string += chr(get_new_ascii(ascii, 90))
+
+        else:
+            new_string = new_string + character
+
+    return new_string
+
+######################################################################
+
 
 # import math
 
