@@ -84,6 +84,33 @@ def generate_hashtag(s):
 ######################################################################
 
 
+### 4
+### Alphanumeric checker
+
+def alphanumeric(password):
+
+    for x in password:
+        if x == " " or x == '_':
+            return False
+        if x not in ('1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'):
+            return False
+    
+    character_count = 10
+
+    for character in ('1234567890'):
+        if character not in password:
+            character_count -= 1
+
+    if character_count == 0:
+        return False
+
+    else:
+        return True
+
+alphanumeric('PassW0rd')
+
+######################################################################
+
 # import math
 
 
