@@ -59,16 +59,40 @@ def well(x):
 ######################################################################
 
 
+### 3 
+### Hashtag generator
 
-import math
-
-
-def decimal_binary_converter(decimal):
+def generate_hashtag(s):
+    """Generates a hashtag from a string of text. Adds a '#' symbol, capitalizes 
+    the first letter of every word, and removes all spaces. 
     
-    bits = math.ceil(math.log(decimal, 2))
+    Return:
+        False: if string is empty or hashtag is longer than 140 characters
+        hashtag: generated hashtag"""
 
-    return bits
+    if s == "":
+        return False
+    
+    hashtag = ('#' + s.title()).replace(' ', '')
 
-print(decimal_binary_converter(8))
+    if len(hashtag) > 140:
+        return False
+    else:
+        return hashtag
 
-print(math.log(8,2))
+
+######################################################################
+
+
+# import math
+
+
+# def decimal_binary_converter(decimal):
+    
+#     bits = math.ceil(math.log(decimal, 2))
+
+#     return bits
+
+# print(decimal_binary_converter(8))
+
+# print(math.log(8,2))
