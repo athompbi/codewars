@@ -125,11 +125,11 @@ def alphanumeric(password):
 ### 5
 ### ROT13 Cipher
 
-### This is a basic caeser cipher that I wrote and then altered to 
+### This is a basic Caeser cipher that I wrote and then altered to 
 ### create the ROT13 Cipher.
 
 def basic_caeser_cipher(string, n):
-    """A basic Caseser cipher that takes a string and then moves
+    """A basic Caeser cipher that takes a string and then moves
     each letter's ascii by n, giving a new character. This cipher
     only affects letters, all other characters are the same as 
     in the original string. 
@@ -138,7 +138,7 @@ def basic_caeser_cipher(string, n):
         new_string: string processed through cipher"""
 
     def get_new_ascii(ascii, n, max):
-        """Gets the new ascii for processing through a cipher. The ascii 
+        """Gets the new ascii for encoding through a cipher. The ascii 
         has n added to it, and if the new ascii is out of range of the max,
         then 26 is subtracted to keep the character a letter.
         
@@ -209,8 +209,27 @@ def rot13(string):
 
     return new_string
 
+
 ######################################################################
 
+### 6
+### Vowel count
+
+def get_count(sentence):
+    """Counts the number of vowels in a given string
+    
+    Return:
+        count: vowel count"""
+
+    count = 0
+    for letter in sentence:
+        if letter in ("aeiouAEIOU"):
+            count += 1
+
+    return count
+
+
+######################################################################
 
 # import math
 
