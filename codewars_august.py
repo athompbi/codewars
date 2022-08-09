@@ -212,6 +212,7 @@ def rot13(string):
 
 ######################################################################
 
+
 ### 6
 ### Vowel count
 
@@ -227,6 +228,28 @@ def get_count(sentence):
             count += 1
 
     return count
+
+
+######################################################################
+
+
+### 7
+### List filtering
+
+def filter_list(list):
+    """Filters a list of non-negative integers and string
+    and filters out the strings.
+    
+    Return:
+        filtered_list: only contains integers"""
+
+    filtered_list = []
+
+    for item in list:
+        if isinstance(item, int) == True:
+            filtered_list.append(item)
+
+    return filtered_list
 
 
 ######################################################################
