@@ -254,6 +254,44 @@ def filter_list(list):
 
 ######################################################################
 
+
+### 8
+### Replace with alphabet position
+
+
+def alphabet_position(string):
+    """Takes a string and returns a string with all letters replaced with their
+    numerical positions in the alphabet. Does not add characters which are not letters.
+    Addds a space between each letter positions for readability.
+    
+    Return:
+        positions: string with letters replaced with alphabet position"""
+
+    positions = ""
+
+    for character in string:
+
+        ascii = ord(character)
+
+        ### lower case letters
+        if ascii > 96 and ascii < 123:
+            position = ascii - 96
+            positions += str(position) + " "
+
+        ### upper case letters
+        elif ascii > 64 and ascii < 91:
+            position = ascii - 64
+            positions += str(position) + " "
+
+    if positions == "":
+        return ""
+    else:
+        ### strips off extra space at the end
+        return positions.rstrip(positions[-1])
+
+
+######################################################################
+
 # import math
 
 
