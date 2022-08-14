@@ -258,7 +258,6 @@ def filter_list(list):
 ### 8
 ### Replace with alphabet position
 
-
 def alphabet_position(string):
     """Takes a string and returns a string with all letters replaced with their
     numerical positions in the alphabet. Does not add characters which are not letters.
@@ -267,7 +266,7 @@ def alphabet_position(string):
     Return:
         positions: string with letters replaced with alphabet position"""
 
-    positions = ""
+    positions = []
 
     for character in string:
 
@@ -292,6 +291,22 @@ def alphabet_position(string):
 
 ######################################################################
 
+
+### 9
+### Title Case
+
+def title_case(string):
+    words = string.split()
+    new_string = []
+
+    for word in words:
+        cap = word.capitalize()
+        new_string.append(cap)
+
+    return ' '.join(new_string)
+
+
+######################################################################
 # import math
 
 
