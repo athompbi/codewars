@@ -307,15 +307,35 @@ def title_case(string):
 
 
 ######################################################################
-# import math
 
 
-# def decimal_binary_converter(decimal):
+### 10
+### Bit Counter
+
+import math
+
+def bit_counter(decimal):
+    """Given a decimal number, converts to binary and
+    counts how many bits are needed (how many 1's)
     
-#     bits = math.ceil(math.log(decimal, 2))
+    Return:
+        bit_count: number of 1's in binary number"""
 
-#     return bits
+    bits_needed = int(math.log(decimal,2) + 1)
 
-# print(decimal_binary_converter(8))
+    binary = []
+    bit_count = 0
 
-# print(math.log(8,2))
+    for i in range(bits_needed - 1, -1, -1):
+        if decimal >= 2 ** i:
+            binary.append('1')
+            decimal -= 2 ** i
+        else:
+            binary.append('0')
+
+    for number in binary:
+        if number == '1':
+            bit_count += 1
+
+    return bit_count
+
